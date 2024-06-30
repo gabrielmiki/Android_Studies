@@ -52,13 +52,77 @@ Modifiers define how UI elements are displayed and behave:
 ### Projects used to Exercise those Concepts
 
 #### 1.Compose Article
-[ComposeArticle] (https://github.com/gabrielmiki/Android_Studies/blob/main/ComposeArticle.png)
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/ComposeArticle.png">
+
+<p> A column element containing three texts and an image </p>
+<p> In which the image is fetched with: `painterResource(id = R.drawable.bg_compose_background)` and configured to `contentScale = ContentScale.FillWidth` </p>
 
 #### 2.Compose Quandrants
-[ComposeQuadrants] (https://github.com/gabrielmiki/Android_Studies/blob/main/ComposeQuadrants.png)
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/ComposeQuadrants.png">
+
+<p> Four columns of two texts arranged and aligned as: </p>
+
+```
+verticalArrangement = Arrangement.Center,
+horizontalAlignment = Alignment.CenterHorizontally
+```
+
+<p> And weighted using `modifier = Modifier.weight(1F)` in two rows. </p>
+
+```
+Row(
+            modifier = Modifier.weight(1F)
+        ) {
+            QuadrantText(
+                title = stringResource(id = R.string.title_three),
+                text = stringResource(id = R.string.text_three),
+                backgroundColor = Color(0xFFB69DF8),
+                modifier = Modifier.weight(1F)
+            )
+            QuadrantText(
+                title = stringResource(id = R.string.title_four),
+                text = stringResource(id = R.string.text_four),
+                backgroundColor = Color(0xFFF6EDFF),
+                modifier = Modifier.weight(1F)
+            )
+        }
+```
 
 #### 3.Task Manager
-[TaskManager] (https://github.com/gabrielmiki/Android_Studies/blob/main/TaskManager.png)
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/TaskManager.png">
+
+<p> Column of an image and two text centerly arranged and aligned. </p>
 
 #### 4.Business Card
-[BusinessCard] (https://github.com/gabrielmiki/Android_Studies/blob/main/BusinessCard.png)
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/BusinessCard.png">
+
+<p> A column containing a mipmap with a circle background and two texts: </p>
+
+```
+Image(
+            painter = image,
+            contentDescription = null,
+            modifier = modifier
+                .background(
+                    color = Color.Green,
+                    shape = CircleShape
+                )
+        )
+```
+
+<p> Followed by a row inside a column (bottom arranged) containing icons and text. </p>
+
+```
+ Row(modifier = modifier) {
+        Icon(
+            icone,
+            contentDescription = null,
+            tint = Color(0xFF39B047),
+            modifier = modifier
+                .padding(
+                    end = 4.dp
+                )
+        )
+        Text(text = text, color = Color.Gray)
+    }
+```
