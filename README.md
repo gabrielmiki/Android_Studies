@@ -51,10 +51,14 @@ Modifiers define how UI elements are displayed and behave:
 
 ### Projects used to Exercise those Concepts
 
-#### Compose Article
+#### 1.Compose Article
+[ComposeArticle] (https://github.com/gabrielmiki/Android_Studies/blob/main/ComposeArticle.png)
 
-#### Compose Quandrants
+#### 2.Compose Quandrants
+[ComposeQuadrants] (https://github.com/gabrielmiki/Android_Studies/blob/main/ComposeQuadrants.png)
 
-#### Task Manager
+#### 3.Task Manager
+[TaskManager] (https://github.com/gabrielmiki/Android_Studies/blob/main/TaskManager.png)
 
-#### Business Card
+#### 4.Business Card
+[BusinessCard] (https://github.com/gabrielmiki/Android_Studies/blob/main/BusinessCard.png)
