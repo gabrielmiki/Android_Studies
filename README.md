@@ -126,3 +126,82 @@ Image(
         Text(text = text, color = Color.Gray)
     }
 ```
+
+## Fundamentals of Application Flow
+
+### Kotlin Language Features
+
+#### Nullable and Non-Nullable Types
+In Kotlin, there's a clear distinction between nullable and non-nullable types:
+- **Nullable types**: Variables that can hold `null`.
+- **Non-null types**: Variables that can't hold `null`.
+
+To declare nullable variables, add a `?` operator to the end of the type.
+
+#### Safe Call Operator (?.)
+Use the `?.` safe call operator to access methods or properties of nullable variables. Simply add a `?` after the variable name and use the `.` notation to access the desired method or property.
+
+#### Not-Null Assertion Operator (!!)
+The `!!` not-null assertion operator allows access to methods or properties of nullable variables, asserting that the variable is not null. If the variable is null, a `NullPointerException` will be thrown.
+
+#### Elvis Operator (?:)
+The Elvis operator `?:` is used to provide a default value if the variable is null. If the variable isn't null, the expression before `?:` executes; otherwise, the expression after `?:` executes.
+
+### Classes and Inheritance
+In Kotlin, all classes are `final` by default, meaning they can't be extended. To allow a class to be extendable, use the `open` keyword.
+
+#### Method Overriding
+- **Open keyword**: Used before method declarations in the superclass to allow them to be overridden.
+- **Override keyword**: Used in the subclass to indicate that a method is overriding a superclass method. This informs the Kotlin runtime to execute the subclass's method instead of the superclass's.
+
+#### Function References
+To refer to a function as a value, use the function reference operator (`::`).
+
+#### Function Types
+Function types consist of a set of parentheses with an optional list of parameters, followed by the `->` symbol and a return type.
+
+### Lambda Expressions
+When programming a lambda expression for a function with parameters:
+- Parameters are named in the order they occur.
+- Parameter names are listed after the opening brace `{`, separated by commas.
+- A `->` separates the parameter names from the function body.
+
+#### Nullable Function Types
+To declare a nullable function type, place the function type in parentheses followed by a `?`. For example, to make the type `() -> String` nullable, declare it as `(() -> String)?`.
+
+### Higher-Order Functions
+Functions that return another function or use a function as an argument are called higher-order functions. The `repeat()` function is an example of a higher-order function, providing a concise way to perform repetitive tasks.
+
+### Exercises
+
+#### 1.Temperature converter
+
+```
+fun main() {
+    printFinalTemperature(27.0, "Celsius", "Fahrenheit", celsiusToFahren)
+    printFinalTemperature(350.0, "Kelvin", "Celsius", kelvinToCelcius)
+    printFinalTemperature(10.0, "Fahrenheit", "Kelvin", fahrenToKelvin)
+}
+
+val celsiusToFahren: (Double) -> Double = {
+    (9 * it) / 5  + 32
+}
+
+val kelvinToCelcius: (Double) -> Double = {
+    it - 273.15
+}
+
+val fahrenToKelvin: (Double) -> Double = {
+    (5 * (it - 32)) / 9 + 273.15
+}
+
+fun printFinalTemperature(
+    initialMeasurement: Double, 
+    initialUnit: String, 
+    finalUnit: String, 
+    conversionFormula: (Double) -> Double
+) {
+    val finalMeasurement = String.format("%.2f", conversionFormula(initialMeasurement)) // two decimal places
+    println("$initialMeasurement degrees $initialUnit is $finalMeasurement degrees $finalUnit.")
+}
+```
