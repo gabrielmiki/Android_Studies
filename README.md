@@ -129,9 +129,7 @@ Image(
 
 ## Fundamentals of Application Flow
 
-### Kotlin Language Features
-
-#### Nullable and Non-Nullable Types
+### 1.Nullable and Non-Nullable Types
 In Kotlin, there's a clear distinction between nullable and non-nullable types:
 - **Nullable types**: Variables that can hold `null`.
 - **Non-null types**: Variables that can't hold `null`.
@@ -147,7 +145,7 @@ The `!!` not-null assertion operator allows access to methods or properties of n
 #### Elvis Operator (?:)
 The Elvis operator `?:` is used to provide a default value if the variable is null. If the variable isn't null, the expression before `?:` executes; otherwise, the expression after `?:` executes.
 
-### Classes and Inheritance
+### 2.Classes and Inheritance
 In Kotlin, all classes are `final` by default, meaning they can't be extended. To allow a class to be extendable, use the `open` keyword.
 
 #### Method Overriding
@@ -160,7 +158,7 @@ To refer to a function as a value, use the function reference operator (`::`).
 #### Function Types
 Function types consist of a set of parentheses with an optional list of parameters, followed by the `->` symbol and a return type.
 
-### Lambda Expressions
+### 3.Lambda Expressions
 When programming a lambda expression for a function with parameters:
 - Parameters are named in the order they occur.
 - Parameter names are listed after the opening brace `{`, separated by commas.
@@ -169,12 +167,12 @@ When programming a lambda expression for a function with parameters:
 #### Nullable Function Types
 To declare a nullable function type, place the function type in parentheses followed by a `?`. For example, to make the type `() -> String` nullable, declare it as `(() -> String)?`.
 
-### Higher-Order Functions
+### 4.Higher-Order Functions
 Functions that return another function or use a function as an argument are called higher-order functions. The `repeat()` function is an example of a higher-order function, providing a concise way to perform repetitive tasks.
 
-### Exercises
+### 5.Exercises
 
-#### 1.Temperature converter
+#### Temperature converter
 
 ```
 fun main() {
@@ -204,4 +202,118 @@ fun printFinalTemperature(
     val finalMeasurement = String.format("%.2f", conversionFormula(initialMeasurement)) // two decimal places
     println("$initialMeasurement degrees $initialUnit is $finalMeasurement degrees $finalUnit.")
 }
+```
+
+#### Lemonade App
+The overall functn of the App is:
+
+Initial Screen
+- The user sees a lemon tree.
+- A prompt asks the user to tap the lemon tree to "pick" a lemon.
+
+Picking the Lemon:
+- After tapping the lemon tree, a lemon appears.
+- The user is prompted to tap the lemon to "squeeze" it to make lemonade.
+- The number of taps required to squeeze the lemon varies randomly between 2 and 4.
+
+Making Lemonade:
+- Once the lemon has been tapped the necessary number of times, a glass of refreshing lemonade appears.
+- The user needs to tap the glass to "drink" the lemonade.
+
+Empty Glass:
+- After tapping the glass of lemonade, an empty glass is shown.
+- The user needs to tap the empty glass to start over.
+
+Repeat:
+- After tapping the empty glass, the lemon tree is shown again, and the user can repeat the process for more lemonade.
+
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/LemonadeApp.png">
+
+The final result consists of a composable function reponsable for the app layout, which will compose it based on the parameters passed.
+
+```
+@Composable
+fun AppLayout(
+    imageResource: Int,
+    stringResource: Int,
+    onClickInstruction: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Column(
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+            .fillMaxSize()
+    ) {
+        Button(
+            colors = ButtonDefaults.buttonColors(Color.LightGray),
+            shape = RoundedCornerShape(10.dp),
+            onClick = onClickInstruction
+        )
+        {
+            Image(
+                painter = painterResource(id = imageResource),
+                contentDescription = null,
+            )
+        }
+        Spacer(modifier = Modifier.height(24.dp))
+        Text(
+            text = stringResource(id = stringResource),
+            fontSize = 18.sp
+        )
+    }
+}
+```
+
+And the app logic, which contains two state variables resposible for the state in which the app finds itself.
+
+```
+@Composable
+fun LemonadeAppContent() {
+    var displayResource by remember {
+        mutableStateOf(0)
+    }
+
+    var variableRandom by remember {
+        mutableStateOf(1)
+    }
+
+    when (displayResource) {
+        0 -> {
+            AppLayout(
+                imageResource = R.drawable.lemon_tree,
+                stringResource = R.string.lemon_collect,
+                onClickInstruction = {
+                    displayResource = 1
+                    variableRandom = (2..4).random()
+                })
+        }
+        1 -> {
+            AppLayout(
+                imageResource = R.drawable.lemon_squeeze,
+                stringResource = R.string.lemon_squeeze,
+                onClickInstruction = {
+                    variableRandom--
+                    if (variableRandom == 0) {
+                        displayResource = 2
+                    }
+                })
+        }
+        2 -> {
+            AppLayout(
+                imageResource = R.drawable.lemon_drink,
+                stringResource = R.string.lemon_drink,
+                onClickInstruction = {
+                    displayResource = 3
+                })
+        }
+        3 -> {
+            AppLayout(
+                imageResource = R.drawable.lemon_restart,
+                stringResource = R.string.start_again,
+                onClickInstruction = {
+                    displayResource = 0
+                })
+        }
+    }
 ```
