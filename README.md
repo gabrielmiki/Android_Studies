@@ -317,3 +317,64 @@ fun LemonadeAppContent() {
         }
     }
 ```
+
+#### Art Gallery App
+
+App responsible for showing different images and descriptions according to the user input
+
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/ArtCollectionApp.png">
+
+Logic is handled by a remembered state variable, which is changed according to clicks in the button. 
+The arguments passsed to the app layout change according to the state the app finds itself.
+Everytime eather one of the buttons is pressed the application state changes.
+
+'''
+var image by remember {
+        mutableStateOf(0)
+    }
+
+    when (image) {
+        0 -> {
+            AppLayout(
+                image = R.drawable.paris,
+                title = R.string.first_picture_title,
+                author = R.string.first_picture_author,
+                year = R.string.first_picture_year,
+                previousOnClick = {
+                    image = 2
+                },
+                nextOnClick = {
+                    image++
+                }
+            )
+        }
+        1 -> {
+            AppLayout(
+                image = R.drawable.torre,
+                title = R.string.second_picture_title,
+                author = R.string.second_picture_author,
+                year = R.string.second_picture_year,
+                previousOnClick = {
+                    image--
+                },
+                nextOnClick = {
+                    image++
+                }
+            )
+        }
+        2 -> {
+            AppLayout(
+                image = R.drawable.coliseu,
+                title = R.string.third_picture_title,
+                author = R.string.third_picture_author,
+                year = R.string.third_picture_year,
+                previousOnClick = {
+                    image--
+                },
+                nextOnClick = {
+                    image = 0
+                }
+            )
+        }
+    }
+    '''
