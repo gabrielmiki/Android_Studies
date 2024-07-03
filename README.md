@@ -329,10 +329,7 @@ The arguments passsed to the app layout change according to the state the app fi
 Everytime eather one of the buttons is pressed the application state changes.
 
 '''
-var image by remember {
-        mutableStateOf(0)
-    }
-
+    
     when (image) {
         0 -> {
             AppLayout(
