@@ -328,8 +328,7 @@ Logic is handled by a remembered state variable, which is changed according to c
 The arguments passsed to the app layout change according to the state the app finds itself.
 Everytime eather one of the buttons is pressed the application state changes.
 
-'''
-    
+```
     when (image) {
         0 -> {
             AppLayout(
@@ -374,4 +373,4 @@ Everytime eather one of the buttons is pressed the application state changes.
             )
         }
     }
-    '''
+    ```
