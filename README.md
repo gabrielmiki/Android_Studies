@@ -373,4 +373,114 @@ Everytime eather one of the buttons is pressed the application state changes.
             )
         }
     }
-    ```
+```
+
+## Kotlin Collections and Scrollable Apps
+
+#### Arrays
+- **Declaration**: Use `arrayOf()`.
+- **Fixed Size**: Arrays have a fixed size.
+- **Access Elements**: Use the array name followed by the index in square brackets (`array[index]`).
+
+#### Lists
+- **List**: An interface for an ordered collection of read-only items.
+- **MutableList**: Extends List to allow modification (adding/removing elements).
+- **Methods**:
+  - `indexOf()`: Find the index of an element.
+  - `add()`: Add an element (at the end or at a specific index).
+  - `remove()` and `removeAt()`: Remove elements by value or index.
+
+#### Sets
+- **Set**: An unordered collection that does not allow duplicates.
+- **MutableSet**: Extends Set to allow modification.
+- **Methods**:
+  - `add()`: Add an element.
+  - `contains()`: Check if an element exists.
+  - `remove()`: Remove an element.
+
+#### Maps
+- **Map**: A collection of key-value pairs.
+- **Declaration**: Use `mapOf()` or `mutableMapOf()`.
+- **Access and Modification**:
+  - `get()` and subscript syntax: Access values.
+  - `remove()`: Remove key-value pairs.
+  - `put()`: Modify values.
+
+#### Higher-Order Functions
+- **forEach()**: Executes a function for each item in a collection.
+- **map()**: Transforms a collection into a new collection.
+- **filter()**: Creates a subset of a collection based on a condition.
+- **groupBy()**: Transforms a list into a map grouped by a specified key.
+- **fold()**: Generates a single value from a collection, useful for sums or averages.
+- **sortedBy()**: Sorts a collection based on a specified property.
+
+### String Templates
+- **Variable Insertion**: Use `$variableName`.
+- **Property Access**: Use expressions within curly braces (`${expression}`).
+
+### Card
+- **Card**: A container for displaying content and actions in a single surface.
+
+### LazyColumn
+- **LazyColumn**: For long, scrollable lists.
+  - **Usage**: Use when the number of items is large or unknown.
+  - **Items**: Add items with the `items()` method, which takes a list as a parameter.
+
+### Exercises
+
+#### Photo List Scrollable App
+
+Here we aim to obtain an app with a grid of cards, each of them with an image and some text specific to each image.
+Each Card is specificaly composed by a composable row function, an image and a custom imageinfo composable to deal with the text display.
+
+```
+Card(
+        modifier = modifier
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = modifier
+        ) {
+            Image(
+                painter = painterResource(id = topic.image),
+                contentScale = ContentScale.Crop,
+                contentDescription = null,
+                modifier = Modifier
+                    .width(68.dp)
+                    .height(68.dp)
+            )
+            ImageInfo(
+                topic = topic,
+                modifier = Modifier
+            )
+        }
+    }
+```
+
+The data to be listed is modeled through a data class.
+
+```
+data class Topic(
+    @StringRes val title: Int,
+    val photoNumber: Int,
+    @DrawableRes val image: Int
+)
+```
+
+And the simmulation of fetching it is obtained through another class (DataSource). Everything is then displayed by a LazyVerticalGrrid.
+
+```
+LazyVerticalGrid(
+        columns = GridCells.Fixed(2),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        modifier = modifier
+            .padding(8.dp)
+    ) {
+        items(cardLayouts) { topic ->
+            CardLayout(topic)
+        }
+    }
+```
+
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/PhotoListApp.png">
