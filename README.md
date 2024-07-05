@@ -484,3 +484,46 @@ LazyVerticalGrid(
 ```
 
 <img src="https://github.com/gabrielmiki/Android_Studies/blob/main/PhotoListApp.png">
+
+#### Superheroes app
+
+This app focuses on creating the components necessary to build a scrollable list and a polished UI using the Material Design principles
+First we used the Material Design BUilder to select different customized color based on a primary one. Then, after configuring the ui.theme directory with the new colors and font, a LazyColumn was used to recieve the data objects in a list format.
+The header was implemented by using the Scaffold function and the CenterAlignedTopAppBar function.
+
+```
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun HeroTopBar(
+    modifier: Modifier = Modifier
+) {
+    CenterAlignedTopAppBar(
+        title = {
+            Text(
+                text = stringResource(R.string.app_name),
+                style = MaterialTheme.typography.displayLarge,
+            )
+        },
+        modifier = modifier
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun SuperHeroApp(
+    modifier: Modifier = Modifier
+) {
+    Scaffold(
+        modifier = modifier,
+        topBar = {
+            HeroTopBar()
+        }
+    ) {
+        HeroList(
+            heroList = HeroesRepository.heroes, contentPadding = it
+        )
+    }
+}
+```
+
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/SuperHeroApp.png">
