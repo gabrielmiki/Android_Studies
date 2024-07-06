@@ -428,7 +428,7 @@ Everytime eather one of the buttons is pressed the application state changes.
 
 ### Exercises
 
-#### Photo List Scrollable App
+#### 1.Photo List Scrollable App
 
 Here we aim to obtain an app with a grid of cards, each of them with an image and some text specific to each image.
 Each Card is specificaly composed by a composable row function, an image and a custom imageinfo composable to deal with the text display.
@@ -485,7 +485,7 @@ LazyVerticalGrid(
 
 <img src="https://github.com/gabrielmiki/Android_Studies/blob/main/PhotoListApp.png">
 
-#### Superheroes app
+#### 2.Superheroes app
 
 This app focuses on creating the components necessary to build a scrollable list and a polished UI using the Material Design principles
 First we used the Material Design BUilder to select different customized color based on a primary one. Then, after configuring the ui.theme directory with the new colors and font, a LazyColumn was used to recieve the data objects in a list format.
@@ -527,3 +527,100 @@ fun SuperHeroApp(
 ```
 
 <img src="https://github.com/gabrielmiki/Android_Studies/blob/main/SuperHeroApp.png">
+
+#### 3.Accounting App
+
+In this project we have created an App that shows a list of tips regarding the accounting subject.
+
+Each tip is put inside a Card composable component, which contains an image, two texts and an icon button.
+
+In this project we start by setting the ui.theme archives throught the Material Design Builder. Then we create the data to be used, mainly the texts, imputing them on the strings.xml file, and import the images.
+
+Beyond the app layout and disply logic, there is also the implmentation of two animations reponsible for the expantion of each card and the update pf the icon button to a arrow pointing upwards when the cards is showing all its content.
+
+```
+@Composable
+fun AccountingCard(
+    accountingInfo: AccountingInfo,
+    modifier: Modifier = Modifier,
+) {
+    var infoButt by remember {
+        mutableStateOf(false)
+    }
+
+    Card(
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        modifier = modifier
+            .heightIn(min = 150.dp)
+    ) {
+        Column(
+            horizontalAlignment = Alignment.Start,
+            modifier = Modifier
+                .animateContentSize(
+                    animationSpec = spring(
+                        dampingRatio = Spring.DampingRatioNoBouncy,
+                        stiffness = Spring.StiffnessMedium
+                    )
+                )
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier
+            ) {
+                Text(
+                    text = stringResource(id = accountingInfo.title),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier
+                        .padding(
+                            start = 8.dp,
+                            end = 8.dp
+                        )
+                )
+                Spacer(modifier = Modifier.weight(1F))
+                IconButton(onClick = { infoButt = !infoButt }) {
+                    Icon(imageVector = iconSelect(infoButt), contentDescription = null)
+                }
+            }
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .padding(
+                        start = 8.dp,
+                        end = 8.dp,
+                        bottom = 8.dp
+                    )
+            ) {
+                Surface(
+                    shadowElevation = 5.dp,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
+                    Image(
+                        painter = painterResource(id = accountingInfo.image),
+                        contentDescription = null,
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(100.dp)
+                    )
+                }
+            }
+            if (infoButt) {
+                Text(
+                    text = stringResource(id = accountingInfo.text),
+                    textAlign = TextAlign.Justify,
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier
+                        .padding(
+                            start = 8.dp,
+                            end = 8.dp
+                        )
+                )
+            }
+        }
+    }
+}
+```
+
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/AccountingApp.png">
