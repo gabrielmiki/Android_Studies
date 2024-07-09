@@ -624,3 +624,46 @@ fun AccountingCard(
 ```
 
 <img src="https://github.com/gabrielmiki/Android_Studies/blob/main/AccountingApp.png">
+
+## Multi-Screen Navigation and Adaptive UI in Android Development
+
+### Multi-Screen Navigation with Jetpack Compose
+- **Navigation Component**: Implements multi-screen apps declaratively.
+- **NavController**: Manages navigation between different screens (destinations).
+- **NavGraph**: Maps out navigation paths between composable destinations.
+- **NavHost**: A container composable that displays the current destination based on the NavGraph.
+
+#### Key Concepts
+- **Routes**: Strings that identify each destination uniquely, similar to URLs.
+- **Composable Destinations**: Defined using the `composable()` function, specifying the route and the content to display.
+
+### Adaptive UI for Different Screen Sizes
+- **WindowSizeClass API**: Implements Material Design breakpoints (Compact, Medium, Expanded).
+- **Responsive Design**: Changes layout based on screen size to improve user ergonomics.
+
+#### Implementation
+- **Navigation Types**: Enum class `ReplyNavigationType` for different navigation elements (bottom navigation, navigation rail, permanent navigation drawer).
+- **Adaptive Layouts**:
+  - **Preview**: Use `@Preview` annotation to create visualizations for different screen sizes.
+  - **Conditional Layouts**: Use `when` statements to switch layouts based on the `WindowWidthSizeClass`.
+
+### Exercise: Milan Recommendations App
+
+#### Features
+
+#### 1.Multi-Screen Navigation
+- **Multiple Screens**: Each screen displays a different category of recommendations.
+- **Jetpack Navigation Component**: Enables users to seamlessly navigate through the app.
+
+#### Clean Architecture
+- **UI Layer and Data Layer Separation**: Maintains a clear distinction between UI and data management.
+- **ViewModel**: Utilizes ViewModel for managing UI-related data in a lifecycle-conscious way.
+- **Unidirectional Data Flow (UDF)**: Ensures UI updates are handled predictably by the ViewModel.
+
+### Adaptive Layouts
+- **Responsive Design**: Adapts layouts to accommodate different screen sizes and orientations.
+- **Material Design Guidelines**: Follows best practices for adaptive design and navigation, providing a consistent and intuitive user experience.
+
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/MilanApp.png">
+
+<video> <source src="https://github.com/gabrielmiki/Android_Studies/blob/main/MilanApp.mp4" type="video/mp4"> </video>
