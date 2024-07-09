@@ -667,3 +667,8 @@ fun AccountingCard(
 <img src="https://github.com/gabrielmiki/Android_Studies/blob/main/MilanApp.png">
 
 <video controls> <source src="https://github.com/gabrielmiki/Android_Studies/blob/main/MilanApp.mp4" type="video/mp4"> </video>
+
+
+
+![Milan App](https://github.com/gabrielmiki/Android_Studies/assets/96574190/e504e941-331c-4625-a6b3-e343fb6a695b)
+
