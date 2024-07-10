@@ -317,3 +317,353 @@ fun LemonadeAppContent() {
         }
     }
 ```
+
+#### Art Gallery App
+
+App responsible for showing different images and descriptions according to the user input
+
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/ArtCollectionApp.png">
+
+Logic is handled by a remembered state variable, which is changed according to clicks in the button. 
+The arguments passsed to the app layout change according to the state the app finds itself.
+Everytime eather one of the buttons is pressed the application state changes.
+
+```
+    when (image) {
+        0 -> {
+            AppLayout(
+                image = R.drawable.paris,
+                title = R.string.first_picture_title,
+                author = R.string.first_picture_author,
+                year = R.string.first_picture_year,
+                previousOnClick = {
+                    image = 2
+                },
+                nextOnClick = {
+                    image++
+                }
+            )
+        }
+        1 -> {
+            AppLayout(
+                image = R.drawable.torre,
+                title = R.string.second_picture_title,
+                author = R.string.second_picture_author,
+                year = R.string.second_picture_year,
+                previousOnClick = {
+                    image--
+                },
+                nextOnClick = {
+                    image++
+                }
+            )
+        }
+        2 -> {
+            AppLayout(
+                image = R.drawable.coliseu,
+                title = R.string.third_picture_title,
+                author = R.string.third_picture_author,
+                year = R.string.third_picture_year,
+                previousOnClick = {
+                    image--
+                },
+                nextOnClick = {
+                    image = 0
+                }
+            )
+        }
+    }
+```
+
+## Kotlin Collections and Scrollable Apps
+
+#### Arrays
+- **Declaration**: Use `arrayOf()`.
+- **Fixed Size**: Arrays have a fixed size.
+- **Access Elements**: Use the array name followed by the index in square brackets (`array[index]`).
+
+#### Lists
+- **List**: An interface for an ordered collection of read-only items.
+- **MutableList**: Extends List to allow modification (adding/removing elements).
+- **Methods**:
+  - `indexOf()`: Find the index of an element.
+  - `add()`: Add an element (at the end or at a specific index).
+  - `remove()` and `removeAt()`: Remove elements by value or index.
+
+#### Sets
+- **Set**: An unordered collection that does not allow duplicates.
+- **MutableSet**: Extends Set to allow modification.
+- **Methods**:
+  - `add()`: Add an element.
+  - `contains()`: Check if an element exists.
+  - `remove()`: Remove an element.
+
+#### Maps
+- **Map**: A collection of key-value pairs.
+- **Declaration**: Use `mapOf()` or `mutableMapOf()`.
+- **Access and Modification**:
+  - `get()` and subscript syntax: Access values.
+  - `remove()`: Remove key-value pairs.
+  - `put()`: Modify values.
+
+#### Higher-Order Functions
+- **forEach()**: Executes a function for each item in a collection.
+- **map()**: Transforms a collection into a new collection.
+- **filter()**: Creates a subset of a collection based on a condition.
+- **groupBy()**: Transforms a list into a map grouped by a specified key.
+- **fold()**: Generates a single value from a collection, useful for sums or averages.
+- **sortedBy()**: Sorts a collection based on a specified property.
+
+### String Templates
+- **Variable Insertion**: Use `$variableName`.
+- **Property Access**: Use expressions within curly braces (`${expression}`).
+
+### Card
+- **Card**: A container for displaying content and actions in a single surface.
+
+### LazyColumn
+- **LazyColumn**: For long, scrollable lists.
+  - **Usage**: Use when the number of items is large or unknown.
+  - **Items**: Add items with the `items()` method, which takes a list as a parameter.
+
+### Exercises
+
+#### 1.Photo List Scrollable App
+
+Here we aim to obtain an app with a grid of cards, each of them with an image and some text specific to each image.
+Each Card is specificaly composed by a composable row function, an image and a custom imageinfo composable to deal with the text display.
+
+```
+Card(
+        modifier = modifier
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = modifier
+        ) {
+            Image(
+                painter = painterResource(id = topic.image),
+                contentScale = ContentScale.Crop,
+                contentDescription = null,
+                modifier = Modifier
+                    .width(68.dp)
+                    .height(68.dp)
+            )
+            ImageInfo(
+                topic = topic,
+                modifier = Modifier
+            )
+        }
+    }
+```
+
+The data to be listed is modeled through a data class.
+
+```
+data class Topic(
+    @StringRes val title: Int,
+    val photoNumber: Int,
+    @DrawableRes val image: Int
+)
+```
+
+And the simmulation of fetching it is obtained through another class (DataSource). Everything is then displayed by a LazyVerticalGrrid.
+
+```
+LazyVerticalGrid(
+        columns = GridCells.Fixed(2),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        modifier = modifier
+            .padding(8.dp)
+    ) {
+        items(cardLayouts) { topic ->
+            CardLayout(topic)
+        }
+    }
+```
+
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/PhotoListApp.png">
+
+#### 2.Superheroes app
+
+This app focuses on creating the components necessary to build a scrollable list and a polished UI using the Material Design principles
+First we used the Material Design BUilder to select different customized color based on a primary one. Then, after configuring the ui.theme directory with the new colors and font, a LazyColumn was used to recieve the data objects in a list format.
+The header was implemented by using the Scaffold function and the CenterAlignedTopAppBar function.
+
+```
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun HeroTopBar(
+    modifier: Modifier = Modifier
+) {
+    CenterAlignedTopAppBar(
+        title = {
+            Text(
+                text = stringResource(R.string.app_name),
+                style = MaterialTheme.typography.displayLarge,
+            )
+        },
+        modifier = modifier
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun SuperHeroApp(
+    modifier: Modifier = Modifier
+) {
+    Scaffold(
+        modifier = modifier,
+        topBar = {
+            HeroTopBar()
+        }
+    ) {
+        HeroList(
+            heroList = HeroesRepository.heroes, contentPadding = it
+        )
+    }
+}
+```
+
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/SuperHeroApp.png">
+
+#### 3.Accounting App
+
+In this project we have created an App that shows a list of tips regarding the accounting subject.
+
+Each tip is put inside a Card composable component, which contains an image, two texts and an icon button.
+
+In this project we start by setting the ui.theme archives throught the Material Design Builder. Then we create the data to be used, mainly the texts, imputing them on the strings.xml file, and import the images.
+
+Beyond the app layout and disply logic, there is also the implmentation of two animations reponsible for the expantion of each card and the update pf the icon button to a arrow pointing upwards when the cards is showing all its content.
+
+```
+@Composable
+fun AccountingCard(
+    accountingInfo: AccountingInfo,
+    modifier: Modifier = Modifier,
+) {
+    var infoButt by remember {
+        mutableStateOf(false)
+    }
+
+    Card(
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+        modifier = modifier
+            .heightIn(min = 150.dp)
+    ) {
+        Column(
+            horizontalAlignment = Alignment.Start,
+            modifier = Modifier
+                .animateContentSize(
+                    animationSpec = spring(
+                        dampingRatio = Spring.DampingRatioNoBouncy,
+                        stiffness = Spring.StiffnessMedium
+                    )
+                )
+        ) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                modifier = Modifier
+            ) {
+                Text(
+                    text = stringResource(id = accountingInfo.title),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier
+                        .padding(
+                            start = 8.dp,
+                            end = 8.dp
+                        )
+                )
+                Spacer(modifier = Modifier.weight(1F))
+                IconButton(onClick = { infoButt = !infoButt }) {
+                    Icon(imageVector = iconSelect(infoButt), contentDescription = null)
+                }
+            }
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .padding(
+                        start = 8.dp,
+                        end = 8.dp,
+                        bottom = 8.dp
+                    )
+            ) {
+                Surface(
+                    shadowElevation = 5.dp,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
+                    Image(
+                        painter = painterResource(id = accountingInfo.image),
+                        contentDescription = null,
+                        contentScale = ContentScale.Crop,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(100.dp)
+                    )
+                }
+            }
+            if (infoButt) {
+                Text(
+                    text = stringResource(id = accountingInfo.text),
+                    textAlign = TextAlign.Justify,
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier
+                        .padding(
+                            start = 8.dp,
+                            end = 8.dp
+                        )
+                )
+            }
+        }
+    }
+}
+```
+
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/AccountingApp.png">
+
+## Multi-Screen Navigation and Adaptive UI in Android Development
+
+### Multi-Screen Navigation with Jetpack Compose
+- **Navigation Component**: Implements multi-screen apps declaratively.
+- **NavController**: Manages navigation between different screens (destinations).
+- **NavGraph**: Maps out navigation paths between composable destinations.
+- **NavHost**: A container composable that displays the current destination based on the NavGraph.
+
+#### Key Concepts
+- **Routes**: Strings that identify each destination uniquely, similar to URLs.
+- **Composable Destinations**: Defined using the `composable()` function, specifying the route and the content to display.
+
+### Adaptive UI for Different Screen Sizes
+- **WindowSizeClass API**: Implements Material Design breakpoints (Compact, Medium, Expanded).
+- **Responsive Design**: Changes layout based on screen size to improve user ergonomics.
+
+#### Implementation
+- **Navigation Types**: Enum class `ReplyNavigationType` for different navigation elements (bottom navigation, navigation rail, permanent navigation drawer).
+- **Adaptive Layouts**:
+  - **Preview**: Use `@Preview` annotation to create visualizations for different screen sizes.
+  - **Conditional Layouts**: Use `when` statements to switch layouts based on the `WindowWidthSizeClass`.
+
+### Exercise: Milan Recommendations App
+
+#### Features
+
+#### 1.Multi-Screen Navigation
+- **Multiple Screens**: Each screen displays a different category of recommendations.
+- **Jetpack Navigation Component**: Enables users to seamlessly navigate through the app.
+
+#### Clean Architecture
+- **UI Layer and Data Layer Separation**: Maintains a clear distinction between UI and data management.
+- **ViewModel**: Utilizes ViewModel for managing UI-related data in a lifecycle-conscious way.
+- **Unidirectional Data Flow (UDF)**: Ensures UI updates are handled predictably by the ViewModel.
+
+### Adaptive Layouts
+- **Responsive Design**: Adapts layouts to accommodate different screen sizes and orientations.
+- **Material Design Guidelines**: Follows best practices for adaptive design and navigation, providing a consistent and intuitive user experience.
+
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/MilanApp.png">
+
+https://github.com/gabrielmiki/Android_Studies/assets/96574190/e504e941-331c-4625-a6b3-e343fb6a695b
