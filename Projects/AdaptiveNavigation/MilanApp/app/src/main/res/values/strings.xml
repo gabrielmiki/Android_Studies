@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Milan App</string>
+    <string name="recommendations_name">Recommendations</string>
+    <string name="details_name">Details</string>
+
+    <string name="name_coffee_1">Pasticceria Marchesi</string>
+    <string name="name_coffee_2">Emporio Armani Caffè</string>
+    <string name="name_coffee_3">Pasticceria Cucchi</string>
+
+    <string name="name_restaurant_1">SushiAnSound</string>
+    <string name="name_restaurant_2">Primè - Ristorante Pesce</string>
+    <string name="name_restaurant_3">Glory Pop</string>
+
+    <string name="name_park_1">Parco Sempione</string>
+    <string name="name_park_2">Parco delle Cave</string>
+    <string name="name_park_3">Boscoincitta</string>
+
+    <string name="name_shopping_1">Galleria Vittorio Emanuele</string>
+    <string name="name_shopping_2">CityLife</string>
+    <string name="name_shopping_3">McArthurGlen Outlet</string>
+
+
+    <string name="details_coffee_1">
+        Pasticceria Marchesi is spread out across three stores throughout Milan.
+        It’s hard to pick our favorite, each one has the signature pistachio green walls
+        and contemporary decor that give you the perfect Instagram moment.
+    </string>
+    <string name="details_coffee_2">The sophistication and simplicity synonymous with the Emporio Armani brand can now be experienced in its food and drinks.</string>
+    <string name="details_coffee_3">Take a step back into time at this historic café that has been serving up coffee in true Milan tradition since 1936.</string>
+
+    <string name="details_restaurant_1">Fantastic entre of ham and burrata the pasta (tortellini) with clams is fantastic. Great wine list with several Italian and Argentinian options.</string>
+    <string name="details_restaurant_2">One of the best meals we had in Milan. This is an excellent restaurant: tuna tartare, cod fish, tarta tatin onion, seabass , tiramisu, all very good.</string>
+    <string name="details_restaurant_3">Very friendly staff and delicious food! It was a pleasure to eat here although it is little bit off the city center on the other hand it is quiet</string>
+
+    <string name="details_park_1">This romantic, easily accessible park offers recreational fun(including jogging and bike paths) for adults and kids alike. Flora and fauna abound at Parco Sempione, which stands near some of Milan’s other popular civic institutions and arenas.</string>
+    <string name="details_park_2">Explore different ways to experience this place.</string>
+    <string name="details_park_3">Meets animal welfare guidelines.</string>
+
+    <string name="details_shopping_1">For sheer belle époque splendor, this extravagant 19th-century glass-topped, barrel-vaulted tunnel serves as a lively, noisy and colorful shopping mall, teeming with life and inviting you to people-watching from the tables that spill from the Gallerias many </string>
+    <string name="details_shopping_2">CityLife Shopping District is the largest urban district dedicated to shopping in Italy, a new concept of leisure and lifestyle, in Milan - Piazza Tre Torri.</string>
+    <string name="details_shopping_3">Explore shopping with no stress! Take advantage of our exclusive shuttle service from Milan and treat yourself to an unforgettable shopping day at Serravalle Designer Outlet. Comfort and style travel together to give you a unique experience.</string>
+</resources>

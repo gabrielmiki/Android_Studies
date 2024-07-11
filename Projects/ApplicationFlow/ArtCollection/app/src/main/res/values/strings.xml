@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Art Collection</string>
+    <string name="first_picture_title">Eifel Tower View</string>
+    <string name="first_picture_author">Zezinho</string>
+    <string name="first_picture_year">2018</string>
+    <string name="second_picture_title">Marvelous Tower</string>
+    <string name="second_picture_author">Jonas</string>
+    <string name="second_picture_year">2020</string>
+    <string name="third_picture_title">The Coliseum</string>
+    <string name="third_picture_author">Marcos</string>
+    <string name="third_picture_year">2022</string>
+</resources>

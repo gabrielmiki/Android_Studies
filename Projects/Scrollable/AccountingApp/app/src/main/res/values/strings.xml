@@ -1,0 +1,124 @@
+<resources>
+    <string name="app_name">Accounting App</string>
+
+    <string name="accounting_title">Introduction to Accounting</string>
+    <string name="activity_title">Understanding the Balance Sheet</string>
+    <string name="balance_title">Current vs. Non-Current Assets</string>
+    <string name="balance_sheet_title">Current vs. Non-Current Liabilities</string>
+    <string name="benchmark_title">Shareholders Equity</string>
+    <string name="cash_flow_title">Income Statement Basics</string>
+    <string name="common_size_title">Gross Profit and Operating Expenses</string>
+    <string name="comparative_title">EBITDA and Net Income</string>
+    <string name="cross_sectional_title">Statement of Cash Flows Overview</string>
+    <string name="current_assets_title">Operating Cash Flows</string>
+    <string name="ebtda_title">Investing Cash Flows</string>
+    <string name="financing_title">Financing Cash Flows</string>
+    <string name="gross_profit_title">Financial Statement Analysis</string>
+    <string name="income_statement_title">Return on Equity (ROE)</string>
+    <string name="investing_title">Return on Assets (ROA)</string>
+    <string name="liabilities_title">Gross Profit Margin</string>
+    <string name="liquidity_title">Operating Profit Margin</string>
+    <string name="margin_title">Pretax and Net Profit Margins</string>
+    <string name="operating_title">Liquidity Ratios</string>
+    <string name="operating_margin_title">Solvency Ratios</string>
+    <string name="operating_profit_margin_title">Activity Ratios</string>
+    <string name="pretax_title">Valuation Ratios</string>
+    <string name="roa_title">Comparative Analysis</string>
+    <string name="roe_title">Common Size Analysis</string>
+    <string name="shareholders_title">Time-Series Analysis</string>
+    <string name="solvency_title">Cross-Sectional Analysis</string>
+    <string name="statement_title">Benchmark Comparison</string>
+    <string name="valuation_title">Ratio Analysis Integration</string>
+
+    <string name="accounting_text">
+        Accounting collects, analyzes, and reports financial data.
+        It includes financial, managerial, and tax accounting.
+        Financial accounting informs outsiders, managerial aids internal decisions, and tax accounting handles compliance.
+    </string>
+    <string name="activity_text">
+        The balance sheet captures a companys financial position, detailing assets, liabilities, and shareholders equity.
+        It must always balance: Assets = Liabilities + Equity.
+    </string>
+    <string name="balance_text">
+        Assets are classified as current (convertible to cash within a year) or non-current (long-term).
+        Examples include cash, inventory, and property.
+    </string>
+    <string name="balance_sheet_text">
+        Liabilities are classified as current (due within a year) or non-current (long-term).
+        Examples include accounts payable, short-term borrowing, and long-term debt.
+    </string>
+    <string name="benchmark_text">
+        Shareholders equity includes common equity, preferred stock, treasury stock, and retained earnings.
+        It represents owners claims on assets.
+    </string>
+    <string name="cash_flow_text">
+        The income statement reports revenues and costs over a period, showing profitability.
+        Key items include revenues, COGS, and net income.
+    </string>
+    <string name="common_size_text">
+        Gross profit is revenues minus COGS. Operating expenses include SGA, depreciation, and RD, leading to operating profit (EBIT).
+    </string>
+    <string name="comparative_text">
+        EBITDA adds depreciation and amortization back to EBIT. Net income is earnings after all expenses and taxes, crucial for profitability analysis.
+    </string>
+    <string name="cross_sectional_text">
+        The statement of cash flows tracks cash changes from operating, investing, and financing activities, explaining cash inflows and outflows.
+    </string>
+    <string name="current_assets_text">
+        Operating cash flows adjust net income for non-cash expenses and changes in working capital, showing cash generated from core operations.
+    </string>
+    <string name="ebtda_text">
+        Investing cash flows include cash spent on or received from the sale of long-term assets like property, equipment, and investments.
+    </string>
+    <string name="financing_text">
+        Financing cash flows involve raising or repaying capital through debt and equity, impacting long-term financial structure.
+    </string>
+    <string name="gross_profit_text">
+        Analyzing financial statements involves assessing strategy, performance, and ratios. Key tools are comparative, common size, and ratio analysis.
+    </string>
+    <string name="income_statement_text">
+        ROE measures profitability by dividing net income by average shareholders equity. It shows how effectively equity is used to generate profit.
+    </string>
+    <string name="investing_text">
+        ROA divides net income by average total assets, indicating how efficiently assets generate profits.
+    </string>
+    <string name="liabilities_text">
+        Gross profit margin, the ratio of gross profit to revenue, shows how well a company manages direct costs of goods sold.
+    </string>
+    <string name="liquidity_text">
+        Operating profit margin (EBIT/revenue) indicates how well a company controls operating expenses relative to sales.
+    </string>
+    <string name="margin_text">
+        Pretax margin (EBT/revenue) and net profit margin (net income/revenue) measure profitability before and after taxes.
+    </string>
+    <string name="operating_text">
+        Liquidity ratios, like current and quick ratios, assess a companys ability to meet short-term obligations with available assets.
+    </string>
+    <string name="operating_margin_text">
+        Solvency ratios, such as debt to equity and interest coverage, evaluate a companys ability to meet long-term debt commitments.
+    </string>
+    <string name="operating_profit_margin_text">
+        Activity ratios, including inventory turnover and receivables turnover, measure how efficiently a company manages its assets.
+    </string>
+    <string name="pretax_text">
+        Valuation ratios, like P/E and P/B, compare market price to financial statement metrics, aiding in investment decisions.
+    </string>
+    <string name="roa_text">
+        Comparative analysis evaluates financial statements over time, identifying trends and changes in performance.
+    </string>
+    <string name="roe_text">
+        Common size analysis reports all items as percentages of revenues or assets, facilitating internal and cross-company comparisons.
+    </string>
+    <string name="shareholders_text">
+        Time-series analysis compares a firms financial data over multiple periods to identify growth patterns and trends.
+    </string>
+    <string name="solvency_text">
+        Cross-sectional analysis compares financial data from multiple companies at the same point in time, highlighting relative performance.
+    </string>
+    <string name="statement_text">
+        Benchmark comparison uses industry norms to evaluate a companys performance, providing context for analysis.
+    </string>
+    <string name="valuation_text">
+        Combining different ratios provides a comprehensive view of a companys financial health, aiding in strategic decision-making.
+    </string>
+</resources>
