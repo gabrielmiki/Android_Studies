@@ -52,13 +52,13 @@ Modifiers define how UI elements are displayed and behave:
 ### Projects used to Exercise those Concepts
 
 #### 1.Compose Article
-<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/ComposeArticle.png">
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/Images/ComposeArticle.png">
 
 <p> A column element containing three texts and an image </p>
 <p> In which the image is fetched with: `painterResource(id = R.drawable.bg_compose_background)` and configured to `contentScale = ContentScale.FillWidth` </p>
 
 #### 2.Compose Quandrants
-<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/ComposeQuadrants.png">
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/Images/ComposeQuadrants.png">
 
 <p> Four columns of two texts arranged and aligned as: </p>
 
@@ -89,12 +89,12 @@ Row(
 ```
 
 #### 3.Task Manager
-<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/TaskManager.png">
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/Images/TaskManager.png">
 
 <p> Column of an image and two text centerly arranged and aligned. </p>
 
 #### 4.Business Card
-<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/BusinessCard.png">
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/Images/BusinessCard.png">
 
 <p> A column containing a mipmap with a circle background and two texts: </p>
 
@@ -227,7 +227,7 @@ Empty Glass:
 Repeat:
 - After tapping the empty glass, the lemon tree is shown again, and the user can repeat the process for more lemonade.
 
-<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/LemonadeApp.png">
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/Images/LemonadeApp.png">
 
 The final result consists of a composable function reponsable for the app layout, which will compose it based on the parameters passed.
 
@@ -322,7 +322,7 @@ fun LemonadeAppContent() {
 
 App responsible for showing different images and descriptions according to the user input
 
-<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/ArtCollectionApp.png">
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/Images/ArtCollectionApp.png">
 
 Logic is handled by a remembered state variable, which is changed according to clicks in the button. 
 The arguments passsed to the app layout change according to the state the app finds itself.
@@ -483,7 +483,7 @@ LazyVerticalGrid(
     }
 ```
 
-<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/PhotoListApp.png">
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/Images/PhotoListApp.png">
 
 #### 2.Superheroes app
 
@@ -526,7 +526,7 @@ fun SuperHeroApp(
 }
 ```
 
-<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/SuperHeroApp.png">
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/Images/SuperHeroApp.png">
 
 #### 3.Accounting App
 
@@ -623,7 +623,7 @@ fun AccountingCard(
 }
 ```
 
-<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/AccountingApp.png">
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/Images/AccountingApp.png">
 
 ## Multi-Screen Navigation and Adaptive UI in Android Development
 
@@ -664,6 +664,7 @@ fun AccountingCard(
 - **Responsive Design**: Adapts layouts to accommodate different screen sizes and orientations.
 - **Material Design Guidelines**: Follows best practices for adaptive design and navigation, providing a consistent and intuitive user experience.
 
-<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/MilanApp.png">
+<img src="https://github.com/gabrielmiki/Android_Studies/blob/main/Images/MilanApp.png">
 
-https://github.com/gabrielmiki/Android_Studies/assets/96574190/e504e941-331c-4625-a6b3-e343fb6a695b
+https://github.com/gabrielmiki/Android_Studies/assets/96574190/5b689bee-c488-47ea-967a-ac7ac4613de0
+
